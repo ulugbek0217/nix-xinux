@@ -1,0 +1,196 @@
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
+  extensions = [
+    "env"
+    "glsl"
+    "html"
+    "css"
+    "ini"
+    "just"
+    "latex"
+    "make"
+    "material-icon-theme"
+    "nginx"
+    "nix"
+    "sql"
+    "toml"
+    "xml"
+    "go"
+    "gotmpl"
+    "dockerfile"
+    "docker-compose"
+    "alejandra"
+    "one-dark-pro"
+    "wit"
+  ];
+
+  settings = {
+    auto_update = false;
+    disable_ai = true;
+    telemetry = {
+      metrics = false;
+      diagnostics = false;
+    };
+
+    detect_indentation = false;
+    tab_size = 4;
+
+    show_edit_predictions = false;
+
+    node = {
+      path = "${pkgs.nodejs}/bin/node";
+      npm_path = "${pkgs.nodejs}/bin/npm";
+    };
+
+    languages = {
+      Markdown = {
+        format_on_save = "on";
+        use_on_type_format = true;
+        remove_trailing_whitespace_on_save = true;
+      };
+
+      Nix = {
+        formatter = "language_server";
+        language_servers = [
+          "nixd"
+          "!nil"
+        ];
+      };
+    };
+
+    lsp = {
+      nixd = {
+        binary = {
+          ignore_system_version = false;
+        };
+        settings = {
+          formatting = {
+            command = [
+              "alejandra"
+            ];
+          };
+          diagnostic = {
+            suppress = [
+              "sema-extra-with"
+              "sema-extra-rec"
+            ];
+          };
+        };
+      };
+
+      rust-analyzer = {
+        binary = {
+          ignore_system_version = false;
+        };
+        initialization_options = {
+          check = {
+            command = "clippy";
+          };
+        };
+      };
+
+      deno = {
+        binary = {
+          ignore_system_version = false;
+        };
+      };
+
+      solargraph = {
+        binary = {
+          ignore_system_version = false;
+        };
+        initialization_options = {
+          diagnostics = true;
+          formatting = true;
+        };
+      };
+
+      gopls = {
+        binary = {
+          path = "gopls";
+        };
+        settings = {
+          hints = {
+            assignVariableTypes = true;
+            compositeLiteralFields = true;
+            parameterNames = true;
+          };
+        };
+      };
+
+      clangd = {
+        arguments = [
+          "--fallback-style={BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4}"
+        ];
+      };
+    };
+
+    load_direnv = "shell_hook";
+
+    theme = {
+      mode = "system";
+      light = "One Light Pro";
+      dark = "One Dark Pro";
+    };
+    icon_theme = "Material Icon Theme";
+
+    preferred_line_length = 100;
+
+    autosave = "off";
+    format_on_save = "on";
+    enable_language_server = true;
+
+    soft_wrap = "editor_width";
+
+    buffer_font_size = 14;
+    buffer_font_family = "JetBrainsMono Nerd Font";
+
+    ui_font_size = 15;
+    ui_font_family = ".SystemUIFont";
+
+    confirm_quit = false;
+    use_autoclose = true;
+
+    inlay_hints = {
+      enabled = true;
+      # show_background = true;
+    };
+
+    title_bar = {
+      show_branch_icon = true;
+    };
+
+    collaboration_panel = {
+      button = false;
+    };
+
+    chat_panel = {
+      button = "never";
+    };
+
+    agent = {
+      enabled = false;
+    };
+  };
+in {
+  config = {
+    programs.zed-editor = {
+      enable = true;
+      inherit extensions;
+      userSettings = settings;
+      installRemoteServer = true;
+      package = pkgs.zed-editor;
+      extraPackages = with pkgs;
+        [
+          gopls
+          gotools
+          delve
+        ]
+        ++ config.programs.helix.extraPackages;
+    };
+  };
+}
