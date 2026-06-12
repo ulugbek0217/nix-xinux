@@ -26,6 +26,7 @@
     "alejandra"
     "one-dark-pro"
     "wit"
+    "rlsp-yaml"
   ];
 
   settings = {

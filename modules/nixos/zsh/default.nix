@@ -15,13 +15,13 @@
     };
 
     # Automatic flake devShell loading
-    # direnv = {
-    #   enable = true;
-    #   silent = true;
-    #   loadInNixShell = false;
-    #   nix-direnv.enable = true;
-    #   enableZshIntegration = true;
-    # };
+    direnv = {
+      enable = true;
+      silent = true;
+      loadInNixShell = false;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+    };
 
     # Replace commant not found with nix-index
     nix-index = {

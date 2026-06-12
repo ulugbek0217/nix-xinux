@@ -66,7 +66,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.direnv.enable = true;
 
   programs.nix-data = {
     enable = true;

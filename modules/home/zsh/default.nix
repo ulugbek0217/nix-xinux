@@ -171,8 +171,6 @@
         sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin
       }
 
-      # Golang's Trash
-      export GOPATH="$HOME/.go"
 
       ${lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
         # Golang's Trash
@@ -180,6 +178,7 @@
 
         # Rustup for globals
         export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
       ''}
 
       ${lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
