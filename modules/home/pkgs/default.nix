@@ -21,7 +21,7 @@
       qbittorrent
       unstable.insomnia
       obsidian
-      element-desktop
+      fractal
     ];
   };
 }

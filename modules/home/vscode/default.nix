@@ -35,6 +35,12 @@
           version = "3.19.0";
           sha256 = "sha256-K0eXeAEn4s3YZHJJU9jxtytNQTgaGwvd3fBUsZiKfPw=";
         }
+        {
+          name = "wit-idl";
+          publisher = "BytecodeAlliance";
+          version = "0.3.33";
+          sha256 = "sha256-+zmf8wODLAI3zSHtzBFB4xTNPJkkvvOUPtkPxfLo7rI=";
+        }
       ];
 
     profiles.default.userSettings = {

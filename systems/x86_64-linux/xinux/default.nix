@@ -14,6 +14,10 @@
   # Define your hostname.
   networking.hostName = "xinux";
 
+  networking.hosts = {
+    "91.212.89.25" = ["git.oss.uzinfocom.uz"];
+  };
+
   console.useXkbConfig = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
