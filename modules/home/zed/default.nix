@@ -129,12 +129,12 @@
       };
     };
 
-    load_direnv = "shell_hook";
+    load_direnv = "direct";
 
     theme = {
       mode = "system";
       light = "One Light Pro";
-      dark = "One Dark Pro";
+      dark = "Gruvbox Dark Hard";
     };
     icon_theme = "Material Icon Theme";
 

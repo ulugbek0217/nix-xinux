@@ -5,7 +5,6 @@
       # If you need to add custom paths, append them instead of replacing
     };
 
-    # List of user's gui apps
     packages = with pkgs; [
       telegram-desktop
       discord
@@ -21,7 +20,8 @@
       qbittorrent
       unstable.insomnia
       obsidian
-      fractal
+      element-desktop
+      easyeffects
     ];
   };
 }
