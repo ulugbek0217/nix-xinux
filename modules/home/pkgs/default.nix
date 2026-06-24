@@ -22,6 +22,8 @@
       obsidian
       element-desktop
       easyeffects
+
+      bibata-cursors
     ];
   };
 }

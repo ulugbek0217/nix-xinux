@@ -1,5 +1,14 @@
-{...}: {
-  dconf.settings = {
+{pkgs, ...}: {
+
+    home.pointerCursor = {
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Original-Classic";
+        size = 20;
+        gtk.enable = true;
+        x11.enable = true;
+      };
+
+    dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
       panel-run-dialog = [""]; # Освобождаем Alt+F2 для медиа-клавиши
     };

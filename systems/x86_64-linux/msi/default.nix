@@ -16,7 +16,7 @@
   # lib.mkForce false bilan system-wide qo'yilgan xinux bootloaderni
   # disable qilib har bir host uchun alohida lanzaboote berish mumkin
   boot = lib.mkForce {
-    loader.systemd-boot.enable = lib.mkForce false;
+    loader.systemd-boot.enable = false;
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
