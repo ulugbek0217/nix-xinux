@@ -22,6 +22,7 @@
       obsidian
       element-desktop
       easyeffects
+      bruno
 
       bibata-cursors
     ];

@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   ...
@@ -26,6 +25,7 @@
     "alejandra"
     "one-dark-pro"
     "wit"
+    "mermaid"
   ];
 
   settings = {

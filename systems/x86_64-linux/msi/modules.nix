@@ -1,11 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  lib,
-  system,
-  ...
-}: {
+{...}: {
   services.flatpak.enable = true;
   modules.packagemanagers.appimage.enable = true;
   modules.shell.starship = true;
